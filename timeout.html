@@ -1,36 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-image: url("imges/time\ is\ out.jpg");
-            background-size: cover;
-            text-align: center;
-            padding: 20px;
-        }
+  </head>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #87a9c1;
+      height: 100vh;
+      font-family: "Arial", sans-serif;
+      margin: 0;
+    }
+    .results-container {
+      text-align: center;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 80%;
+      max-width: 600px;
+    }
+    .results-container h1 {
+      font-size: 2.5em;
+      color: #333;
+      margin-bottom: 20px;
+    }
+    .results-container p {
+      font-size: 1.2em;
+      color: #555;
+      margin-bottom: 20px;
+    }
+    .results-container .score {
+      font-size: 2em;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
 
-        p {
-            font-size: 25px;
-            color:  #010A43;
-            margin-top: 20px;
-            background-color: aliceblue;
-        }
-    </style>
+  </style>
 </head>
 <body>
-   <script>
-    const quizResult = localStorage.getItem("quizResult");
-   
+  <div class="results-container">
+    <h1>Quiz Results</h1>
+    <p>Sorry time is out !!</p>
+    <p class="score"></p>
+  </div>
+
+  <script>
+    const quizResult = localStorage.getItem("counter");
+    const fullName = localStorage.getItem("fullName");
+    const score = document.querySelector(".score");
     if (quizResult !== null) {
-      document.write(`<p>Sorry time is out!!! Your Result: ${quizResult} out of 5 </p>`);
+      score.innerHTML = `${fullName} your score: <span id="score">${quizResult}</span> / 5`;
     } else {
-      document.write("<p>Result not available.</p>");
+      score.innerHTML = "<p>Result not available.</p>";
     }
-   </script> 
-</body>
+    </script>
+  </body>
 </html>

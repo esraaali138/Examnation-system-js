@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz</title>
+    <link rel="stylesheet" href="css/quiz.css" />
+  </head>
+  <body>
+    <header>
+      <div class="outer-circle">
+        <div class="inner-circle">
+          <span id="time">00:00</span>
+        </div>
+      </div>
+
+      <p>setting</p>
+    </header>
+    <!--  -->
+    <section>
+      <div class="question-info">
+        <p class="question-count"></p>
+        <div id="questions"></div>
+      </div>
+      <!--  -->
+      <div id="answersContainer" class="answers"></div>
+    </section>
+
+    <footer>
+      <div class="arrow-container">
+        <button id="prev">&laquo;</button>
+        <button id="next">&raquo;</button>
+      </div>
+      <div class="submit">
+        <button type="submit">Submit Answer</button>
+      </div>
+    </footer>
+
+    <script src="js/quiz.js"></script>
+    <script src="js/timer.js"></script>
+  </body>
+</html>

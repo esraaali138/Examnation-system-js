@@ -1,48 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>register</title> 
-    <link rel="stylesheet" href="css/form.css"> 
-</head> 
-<body>
- <div class="container" style="height: 100vh;">
-  
-  <div class="form-content">
-    <form id="registrationForm">
-      <h1>Sign Up</h1>
-      <label for="firstName">First Name:</label>
-      <input type="text" id="firstName" name="firstName" >
-      <span id="firstNameMessage" class="error-message"></span>
-  
-      <label for="lastName">Last Name:</label>
-      <input type="text" id="lastName" name="lastName" >
-      <span id="lastNameMessage" class="error-message"></span>
-  
-      <label for="email">Email Address:</label>
-      <input type="text" id="email" name="email" > 
-      <span id="emailMessage" class="error-message"></span>
-  
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password"  minlength="8">
-      <span id="passwordMessage" class="error-message"></span>
-  
-      <label for="confirmPassword">Re-enter Password:</label>
-      <input type="password" id="confirmPassword" name="confirmPassword" >
-      <span id="confirmPasswordMessage" class="error-message"></span>
-  
-      <p class="error-message" id="errorMessage"></p>
-  
-      <input type="submit" value="Sign up" ></input>
-  </form>
-  </div>
-  <div class="img">
-  </div> 
- </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>register</title>
+    <link rel="stylesheet" href="css/form.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container" style="height: 100vh">
+      <div class="img"></div>
+      <!--  -->
+      <form id="form">
+        <h1>welcome <span class="wave">👋</span></h1>
+        <div class="input-container">
+          <div class="input-wrapper">
+            <input
+              class="input"
+              type="text"
+              id="name"
+              name="name"
+              placeholder="your name"
+            />
+            <i class="fas fa-user"></i>
+          </div>
+          <div class="input-wrapper">
+            <input
+              class="input"
+              type="text"
+              id="email"
+              name="email"
+              placeholder="your e-mail"
+            />
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="input-wrapper wrapper">
+            <i class="fas fa-eye eye-icon" id="toggle-password"></i>
 
-  
-
-      <script src="js/register.js"></script> 
-</body>
-</html> 
+            <input
+              class="input"
+              type="password"
+              id="password"
+              name="password"
+              minlength="8"
+              placeholder="Create Password"
+            />
+            <i class="fas fa-lock"></i>
+          </div>
+          <div class="input-wrapper">
+            <input
+              class="input"
+              type="password"
+              id="confirmPassword"
+              name="confirmPassword"
+              placeholder="Confirm Password"
+            />
+            <i class="fas fa-lock"></i>
+          </div>
+          <div class="btns">
+            <input type="submit" value="Create account" />
+            <input type="submit" value="Sign In" />
+          </div>
+        </div>
+      </form>
+    </div>
+    <script src="js/form.utils.js" type="module"></script>
+    <script src="js/register.js" type="module"></script>
+  </body>
+</html>

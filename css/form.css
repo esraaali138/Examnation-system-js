@@ -2,111 +2,156 @@
   margin: 0;
   padding: 0;
 }
+body{
+  background-color: #f1f6f8;
+}
 .container {
   display: flex;
   justify-content: center;
-  width: 90%;
-  gap: 50px;
+  align-items: center;
 }
+
 .img {
-  width: 60%;
-  height: 100vh;
+  width: 35%;
+  height: 83.3vh;
   background-image: url("../imges/What-Is-Online-Exam.png");
   background-size: cover;
   background-position: center;
+  box-shadow: 0 0 10px rgb(130, 128, 132);
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 h1 {
+  color: #0e77a0;
   text-align: center;
   font-size: 24px;
   margin-top: 10px;
 }
-.form-content {
-  display: flex;
-  justify-content: flex-end;
-  width: 40%;
-  margin-left: 35px;
+
+form {
+  opacity: 0.8;
+  padding: 10px;
+  width: 450px;
+  box-shadow: 0 0 10px rgb(130, 128, 132);
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 900;
+  height: 80vh;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background: white;
+}
+.input-wrapper {
+  position: relative;
+  width: 75%;
+  margin-left: 25px;
+  margin-top: 10px;
+  padding: 6px;
+
+}
+.input-wrapper i {
+  position: absolute;
+  left: 14px;
+  top: 45%;
+  color: #a9d7e9ed;
+  font-size: 16px;
+  
+}
+input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 18px;
+  border: 1px solid #87a9c1;
+  margin-top: 10px;
+  outline: none;
+  color: #87a9c1;
+  padding-left: 28px;
+
+}
+input::placeholder {
+  color: #87a9c1;
+}
+.input-container {
+  margin-top: 30px;
 }
 
-  form {
-    background: rgb(241, 170, 5);
-    opacity: 0.8;
-    padding: 10px;
-    width: 350px;
-    box-shadow: 0 0 10px rgb(130, 128, 132);
-    color: #ffffff;
-    font-size: 18px;
-    font-weight: 900;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 8px;
-  }
-  
-  input {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 12px;
-    box-sizing: border-box;
-    background-color: #ffffff;
-    border-radius: 8px;
-    border: 2px solid #6eb0ba;
-  }
-  
-  input[type="submit"] {
-    background-color:  #0e77a0;
-    color: #ffffff;
-    font-size: 20px;
-    padding: 10px;
-    margin-top: 20px;
-    border: none;
-    border-radius: 16px;
-    cursor: pointer;
-    outline: none;
-  }
-  
-  input[type="submit"]:hover {
-    background-color: #ffffff;
-    color: #0e77a0;
-  }
-  
-  .error-message {
-    color: rgb(255, 13, 13);
 
-    font-size: 18px;
-  }
-  span {
-    color: red;
+.wrapper .eye-icon{
+  left: 100%;
+  cursor: pointer;
+}
 
-    font-size: 18px;
-    
-  }
-  .loginForm{
-    height: 380px;
-    display: flex;
-    margin-top: 120px;
-    
-  }
-  /* error in the second form */
-  #error { 
-    color: rgb(255, 13, 13);
-    font-size: 18px;
+.btns {
+  display: flex;
+  width: 60%;
+  margin: auto;
+  gap: 10px;
+  margin-top: 30px;
+}
+input[type="submit"] {
+  background-color: #ffa723;
+  color: #ffffff;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
 
-  }
-  @media (max-width:768px) {
-    .container {
-      flex-direction: column;
-      align-items: stretch;
-    }
-    .img {
+input[type="submit"]:last-child {
+  border: 1px solid #87a9c1;
+  background: transparent;
+  color: #0e77a0;
+}
+
+.error-message {
+  color: red;
+  position: absolute;
+  font-size: 16px;
+  margin-top: 8px;
+margin-left: 4px;
+}
+.loginForm {
+  height: 380px;
+  display: flex;
+  margin-top: 120px;
+}
+/* error in the second form */
+#error {
+  color: rgb(255, 13, 13);
+  font-size: 18px;
+}
+p{
+  color: red;
+}
+
+
+.wave {
+  animation-name: wave-animation;  
+  animation-duration: 2.5s;        
+  animation-iteration-count: infinite;  
+  transform-origin: 70% 70%;       
+  display: inline-block;
+}
+
+@keyframes wave-animation {
+    0% { transform: rotate( 0.0deg) }
+   10% { transform: rotate(14.0deg) }  
+   20% { transform: rotate(-8.0deg) }
+   30% { transform: rotate(14.0deg) }
+   40% { transform: rotate(-4.0deg) }
+   50% { transform: rotate(10.0deg) }
+   60% { transform: rotate( 0.0deg) }  
+  100% { transform: rotate( 0.0deg) }
+}
+
+@media (max-width: 1040px) {
+
+  .img {
     display: none;
-    }
-    .form-content {
-      width: 100%;
-      justify-content: center;
-      align-items: center;
-    }
-    
   }
- 
+  form{
+    border-radius: 10px;
+  }
+}

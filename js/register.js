@@ -1,81 +1,70 @@
-document
-  .getElementById("registrationForm")
-  .addEventListener("submit", function (e) {
-    e.preventDefault();
-    const firstName = document.getElementById("firstName");
-    const lastName = document.getElementById("lastName");
-    const email = document.getElementById("email");
-    const password = document.getElementById("password");
-    const confirmPassword = document.getElementById("confirmPassword");
-    const errorMessage = document.getElementById("errorMessage");
-    //regular expresion//////////////////////////
-    const regularFirstName = /^[a-zA-Z]+$/.test(firstName.value);
-    const regularLastName = /^[a-zA-Z]+$/.test(lastName.value);
-    const regularEmail = /\S+@\S+\.\S+/.test(email.value);
-    const inputField = document.querySelector('input');
-    /////////////////////////
-    const clearMessages = () => {
-      const errorMessages = document.querySelectorAll(".error-message"); ///nodelist
-      errorMessages.forEach((message) => {
-        message.textContent = "";
-      });
-    };
+import { togglePasswordVisibility, validateInputFields  , regularEmail , regularName} from "./form.utils.js";
 
-    if (!regularFirstName) {
-      document.getElementById("firstNameMessage").textContent =
-        "Must contain only alphabetical characters.";
-    } else {
-      document.getElementById("firstNameMessage").style.display = "none";
+const Name = document.getElementById("name");
+const email = document.getElementById("email");
+const password = document.getElementById("password");
+const confirmPassword = document.getElementById("confirmPassword");
+const inputField = document.querySelectorAll(".input");
+const createAccountInput = document.querySelector('[value="Create account"]');
+const loginInput = document.querySelector('[value="Sign In"]');
+
+
+createAccountInput.addEventListener('click' ,(e)=>{
+e.preventDefault();
+validateInputFields(inputField , (input , inputValue , errorMessage)=>{
+  if (inputValue === "") {
+    errorMessage.textContent = "This field is required";
+    input.style.border = "1px solid red";
+  } else {
+    input.style.border = "1px solid #87a9c1";
+
+    if (input.id === "name" && !regularName.test(inputValue)) {
+      errorMessage.textContent = "Please enter Only Characters";
+      input.style.border = "1px solid red";
     }
-    //////////////
-    if (!regularLastName) {
-      document.getElementById("lastNameMessage").textContent =
-        "Must contain only alphabetical characters.";
-    } else {
-      document.getElementById("lastNameMessage").style.display = "none";
+
+    if (input.id === "email" && !regularEmail.test(inputValue)) {
+      errorMessage.textContent = "Please enter valid email";
+      input.style.border = "1px solid red";
     }
-    //////////////
-    if (!regularEmail) {
-      document.getElementById("emailMessage").textContent =
-        "Enter a valid email address.";
-    } else {
-      document.getElementById("emailMessage").style.display = "none";
+
+    if (input.id === "password" && password.value.length < 8) {
+      errorMessage.textContent =
+        "Password should be at least 8 characters long";
+      input.style.border = "1px solid red";
     }
-    /////////////////
-    if (password.value.length < 8) {
-      document.getElementById("passwordMessage").textContent =
-        "Password should be at least 8 characters long.";
-    } else {
-      document.getElementById("passwordMessage").style.display = "none";
-    }
-    //////////////////////////
-    if (password.value !== confirmPassword.value) {
-      document.getElementById("confirmPasswordMessage").textContent =
-        "Passwords do not match.";
-    } else {
-      document.getElementById("confirmPasswordMessage").style.display = "none";
-    }
-    ////////////////////
     if (
-      regularFirstName &&
-      regularLastName &&
-      regularEmail &&
-      password.value.length >= 8 &&
-      password.value === confirmPassword.value
+      input.id === "confirmPassword" &&
+      password.value !== confirmPassword.value
     ) {
-      //  document.querySelector("input[type='submit']").disabled = false;
-      localStorage.setItem("firstName", firstName.value);
-      // localStorage.setItem("lastName", lastName.value);
-      localStorage.setItem("email", email.value);
-      localStorage.setItem("password", password.value);
-      // Redirect to a success page or perform any necessary action
-      // setTimeout(() => {
-      //     window.location = "form.html";
-      // }, 1500);
-      location.replace("form2.html"); //you can not go to this page if you submitted 
+      errorMessage.textContent = "Passwords do not match.";
+      input.style.border = "1px solid red";
     }
-    // else {
-    //   document.querySelector("input[type='submit']").disabled = true;
-    // }
-    
-  });
+
+    if (errorMessage.textContent === "") errorMessage.remove();
+    redirectToLogin();
+
+  }
+})
+})
+togglePasswordVisibility()
+
+
+function redirectToLogin() {
+  if (
+    regularName.test(Name.value) &&
+    regularEmail.test(email.value) &&
+    password.value.length >= 8 &&
+    password.value === confirmPassword.value
+  ) {
+    localStorage.setItem("email", email.value);
+    localStorage.setItem("password", password.value);
+    localStorage.setItem('fullName' , Name.value)
+    location.replace("login.html");
+  }
+}
+
+loginInput.addEventListener("click", (e) => {
+  e.preventDefault();
+  location.replace("login.html");
+});

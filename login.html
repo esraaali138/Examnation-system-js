@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title> 
+    <link rel="stylesheet" href="css/form.css">  
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+<style>
+.input-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 230px;
+}
+</style>
+</head> 
+<body>
+  <div class="container" style="height: 100vh;">
+    <div class="img">
+    </div> 
+    <!--  -->
+      <form id="form" >
+          <h1>welcome <span class="wave">👋</span>  </h1>
+          <div class="input-container">
+            <div class="input-wrapper">
+              <input class="input" type="text" id="email" name="email" placeholder="your e-mail"> 
+              <i class="fas fa-envelope"></i>
+            </div>
+
+            <div class="input-wrapper wrapper">
+              <i class="fas fa-eye eye-icon" id="toggle-password"></i>
+              <input
+                class="input"
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Confirm Password"
+              />
+              <i class="fas fa-lock"></i>
+  
+            </div>
+          </div>
+    
+        <div class="btns">
+          <input type="submit" value="Create account"></input>
+          <input type="submit" value="Sign In" ></input>
+        </div>
+    </form>
+  
+   </div>
+   <script src="js/form.utils.js" type="module"></script>
+     <script src="js/login.js" type="module"></script>
+</body>
+</html>
+
+<div class="container ">
+  
+ 
+  

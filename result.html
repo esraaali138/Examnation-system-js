@@ -1,41 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Results</title>
     <style>
-              body {
-            font-family: 'Arial', sans-serif;
-            background-image: url('./imges/bg\ result.jpg');
-            background-size: cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-
-        }
-
-
-
-        p {
-            font-size: 30px;
-            color: #ffffff;
-            text-transform: capitalize;
-        }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #87a9c1;
+        height: 100vh;
+        font-family: "Arial", sans-serif;
+        margin: 0;
+      }
+      .results-container {
+        text-align: center;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 80%;
+        max-width: 600px;
+      }
+      .results-container h1 {
+        font-size: 2.5em;
+        color: #333;
+        margin-bottom: 20px;
+      }
+      .results-container p {
+        font-size: 1.2em;
+        color: #555;
+        margin-bottom: 20px;
+      }
+      .results-container .score {
+        font-size: 2em;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+      .results-container button {
+        background-color: #ffa723;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 1em;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      .results-container button:hover {
+        opacity: 0.9;
+      }
     </style>
-</head>
-<body>
-    <script > 
- const quizResult = localStorage.getItem("quizResult");
-const firstName=   localStorage.getItem("firstName");
+  </head>
+  <body>
+    <div class="results-container">
+      <h1>Quiz Result</h1>
+      <p>Thank you for completing the quiz!</p>
+      <p class="score"></p>
+    </div>
 
-// Display the result on the page
-if (quizResult !== null) {
-  document.write(`<p> ${firstName} Your Result: ${quizResult} out of 5 </p>`);
-} else {
-  document.write("<p>Result not available.</p>");
-} 
+    <script>
+      const quizResult = localStorage.getItem("counter");
+      const fullName = localStorage.getItem("fullName");
+      const score = document.querySelector(".score");
+      if (quizResult !== null) {
+        score.innerHTML = `${fullName} your score: <span id="score">${quizResult}</span> / 5`;
+        
+      } else {
+        score.innerHTML = "<p>Result not available.</p>";
+      }
     </script>
-</body>
+  </body>
 </html>
