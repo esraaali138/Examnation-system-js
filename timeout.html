@@ -55,7 +55,7 @@
     const fullName = localStorage.getItem("fullName");
     const score = document.querySelector(".score");
     if (quizResult !== null) {
-      score.innerHTML = `${fullName} your score: <span id="score">${quizResult}</span> / 5`;
+      score.innerHTML = `${fullName} your score: <span id="score">${quizResult}</span> / 20`;
     } else {
       score.innerHTML = "<p>Result not available.</p>";
     }
